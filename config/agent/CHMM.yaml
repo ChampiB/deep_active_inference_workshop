@@ -1,0 +1,13 @@
+name: chmm
+
+_target_: agents.models.CHMM.CHMM
+
+# Miscellaneous
+tensorboard_dir: "${oc.env:DATA_DIRECTORY}/runs/${agent.name}_dSprites_${seed}"  # The path where the tensorboard files should be saved
+n_states: 15  # The size of the state space
+image_shape: ${images.shape}  # The size of the input images
+vfe_lr: 0.0001  # The learning rate of the encoder, decoder and transition networks
+efe_lr: 0.0001  # The learning rate of the critic
+discount_factor: 0.95  # The discount factor to used for the reward
+n_steps_between_synchro: 10  # The number of training iterations before to synchronise the target which the policy
+g_value: "reward"  # The type of gain to use, i.e., reward, efe_0, efe_1, efe_2, or efe_3

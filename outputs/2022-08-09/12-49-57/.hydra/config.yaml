@@ -1,0 +1,19 @@
+agent:
+  name: dqn
+  _target_: agents.models.DQN.DQN
+  tensorboard_dir: ${oc.env:DATA_DIRECTORY}/runs/${agent.name}_dSprites_${seed}
+  image_shape: ${images.shape}
+  n_steps_between_synchro: 10
+  discount_factor: 0.9
+  lr: 0.001
+checkpoint:
+  file: ${oc.env:DATA_DIRECTORY}/dSprites/${agent.name}/${seed}/model.pt
+  frequency: 100
+images:
+  shape: ${tuple:1,64,64}
+display_gui: true
+enable_tensorboard: true
+n_training_steps: 500000
+buffer_start_size: 50
+batch_size: 50
+seed: 1

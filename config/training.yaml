@@ -1,0 +1,19 @@
+defaults:
+  - agent: CHMM  # The agent to be trained, i.e., CHMM or DQN
+  - _self_
+
+checkpoint:
+  file: "${oc.env:DATA_DIRECTORY}/dSprites/${agent.name}/${seed}/model.pt"  # The location where the model should be saved
+  frequency: 100  # Frequency at which the model should be saved
+
+images:
+  shape: ${tuple:1,64,64}  # Shape of the input image
+
+display_gui: true  # Whether to display the agent interation with the environment graphically
+enable_tensorboard: true  # Whether to use tensorboard for tracking reward, VFE, ...
+n_training_steps: 500000  # Number of training iterations
+
+buffer_start_size: 50  # The size of the replay buffer before to start sampling from it
+batch_size: 50  # Batch size when sampling from the replay buffer
+
+seed: 1  # Random seed to use

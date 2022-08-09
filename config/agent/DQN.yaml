@@ -1,0 +1,10 @@
+name: dqn
+
+_target_: agents.models.DQN.DQN
+
+# Miscellaneous
+tensorboard_dir: "${oc.env:DATA_DIRECTORY}/runs/${agent.name}_dSprites_${seed}"  # The path where the tensorboard files should be saved
+image_shape: ${images.shape}  # The size of the input images
+n_steps_between_synchro: 10  # The number of training iterations before to synchronise the target which the policy
+discount_factor: 0.9  # The discount factor to used for the reward
+lr: 0.001  # The learning rate of the policy
